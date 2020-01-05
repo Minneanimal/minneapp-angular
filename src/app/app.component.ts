@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MinneApp';
+  links = [
+    {label: 'Home', path: 'home'},
+    {label: 'Apps', path: 'apps'},
+    {label: 'About', path: 'about'}
+  ];
 }

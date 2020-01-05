@@ -1,0 +1,9 @@
+.primary-card {
+    max-width: 50vw;
+}
+
+.container {
+    margin: 16px;
+    display: flex;
+    justify-content: center;
+}
