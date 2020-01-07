@@ -1,0 +1,9 @@
+sude: require
+services:
+    - docker
+
+before_install:
+    - docker build -t minneanimal/minneapp-angular -f Dockerfile.dev .
+
+script: 
+    - docker run minneanimal/minneapp-angular npm test
