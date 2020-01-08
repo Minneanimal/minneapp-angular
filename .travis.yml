@@ -1,8 +1,12 @@
 sude: require
+dist: trusty
+addons:
+  chrome: stable
 services:
     - docker
 
 before_install:
+    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
     - docker build -t minneanimal/minneapp-angular -f Dockerfile.dev .
 
 script: 
