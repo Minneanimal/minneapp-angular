@@ -1,13 +1,16 @@
 sude: require
-dist: trusty
-addons:
-  chrome: stable
 services:
     - docker
+addons:
+    apt:
+        sources:
+        - google-chrome
+        packages:
+        - google-chrome-stable
 
 before_install:
-    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
     - docker build -t minneanimal/minneapp-angular -f Dockerfile.dev .
 
 script: 
-    - docker run minneanimal/minneapp-angular npm test
+    - docker run minneanimal/minneapp-angular npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox
+      
